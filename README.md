@@ -41,6 +41,7 @@ curl -X POST localhost:3000/reservas -H 'Content-Type: application/json' \
 ### Integrantes
 
 | Nome | Usuário do GitHub | Parte principal |
+| :--- | :--- | :--- |
 | Maria Eduarda Zumbé | [iduarda](https://github.com/iduarda) | `dominio.ts` (OO), `regras.ts` e `main.ts` |
 | | | |
 | | | |
@@ -50,6 +51,7 @@ curl -X POST localhost:3000/reservas -H 'Content-Type: application/json' \
 1. **Concorrência.** Como vocês garantem que duas pessoas não ficam com a mesma poltrona? Onde estava o
    `await` perigoso?
 2. **OO.** O que o `Evento` esconde e por quê? Por que o `reservar` é tudo ou nada? Por que os erros são uma hierarquia de classes?
+
    **Resposta.** O `Evento` esconde a lista de poltronas vendidas no campo privado `#vendidas`.
    De fora da classe só dá para ler quantas restam, pelo `get disponivel()`, que não tem `set`.
    Para mudar as poltronas é obrigatório passar pelos métodos `reservar` e `liberar`, que conferem
@@ -66,6 +68,7 @@ curl -X POST localhost:3000/reservas -H 'Content-Type: application/json' \
    404, 409 ou 502). Assim o `servidor.ts` trata todos de uma vez, com um único
    `erro instanceof ErroDeNegocio` e `res.status(erro.status)`, sem um `if` para cada tipo. Para
    criar um erro novo, basta outra classe filha, sem mexer no servidor.
+   
 3. **Funcional.** O que ganhamos com `preco.ts` puro? Como vocês testariam ele sem subir o servidor?
 4. **Se fosse em outro paradigma.** Escolham uma das partes e expliquem como ficaria em outro
    paradigma, e se ficaria melhor ou pior.
