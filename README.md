@@ -43,7 +43,7 @@ curl -X POST localhost:3000/reservas -H 'Content-Type: application/json' \
 | Nome | Usuário do GitHub | Parte principal |
 | :--- | :--- | :--- |
 | Maria Eduarda Zumbé | [iduarda](https://github.com/iduarda) | `dominio.ts` (OO), `regras.ts` e `main.ts` |
-| | | |
+| Anna Maria Albino | [annamarialb](https://github.com/annamarialb)|  `preco.ts`(funcional) e `Dockerfile` |
 | | | |
 
 ### Decisões
@@ -70,9 +70,12 @@ curl -X POST localhost:3000/reservas -H 'Content-Type: application/json' \
    criar um erro novo, basta outra classe filha, sem mexer no servidor.
    
 3. **Funcional.** O que ganhamos com `preco.ts` puro? Como vocês testariam ele sem subir o servidor?
-4. **Se fosse em outro paradigma.** Escolham uma das partes e expliquem como ficaria em outro
+   
+   **Resposta.** Como o preco.ts só tem funções puras, o mesmo dado de entrada sempre dá o mesmo resultado. Nenhuma função altera a lista recebida: o map e o reduce criam valores novos. Por isso não existe estado escondido nem efeito colateral que dependa da ordem dos pedidos concorrentes. Para testar sem subir o servidor, basta importar as funções e chamar direto, por exemplo aplicarTaxa(0.1)(100) tem que dar 110. A regra da meia também vem por parâmetro no montarIngressos, então dá para testar com qualquer regra.
+   
+5. **Se fosse em outro paradigma.** Escolham uma das partes e expliquem como ficaria em outro
    paradigma, e se ficaria melhor ou pior.
-5. **Concorrente × paralelo.** O Node roda o JavaScript numa linha só: os pedidos de vocês são
+6. **Concorrente × paralelo.** O Node roda o JavaScript numa linha só: os pedidos de vocês são
    concorrentes, não paralelos. O que mudaria se a venda rodasse em vários núcleos ao mesmo tempo?
 
 ### Resultados do bench
