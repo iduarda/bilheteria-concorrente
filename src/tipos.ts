@@ -46,3 +46,10 @@ export interface ConfigBilheteria {
   pagar: Pagamento;
   limitePagamentoMs: number;
 }
+
+// Interface extra usada pela bilheteria: tentativas de cobrança configuráveis.
+// O padrão é 1, para não cobrar duas vezes por causa de uma retentativa.
+export interface ConfigBilheteriaComRetentativa extends ConfigBilheteria {
+  tentativas?: number;
+  intervaloEntreTentativasMs?: number;
+}
