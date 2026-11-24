@@ -36,7 +36,7 @@ curl -X POST localhost:3000/reservas -H 'Content-Type: application/json' \
 
 ## Preencham (avaliado no vídeo)
 
-**Link do vídeo:** 
+**Link do vídeo:** https://youtu.be/3-xpgNZwfVQ?is=rkfEadiGw0s9wZe0
 
 ### Integrantes
 
@@ -92,7 +92,7 @@ curl -X POST localhost:3000/reservas -H 'Content-Type: application/json' \
    
    **Resposta.** Como o preco.ts só tem funções puras, o mesmo dado de entrada sempre dá o mesmo resultado. Nenhuma função altera a lista recebida: o map e o reduce criam valores novos. Por isso não existe estado escondido nem efeito colateral que dependa da ordem dos pedidos concorrentes. Para testar sem subir o servidor, basta importar as funções e chamar direto, por exemplo aplicarTaxa(0.1)(100) tem que dar 110. A regra da meia também vem por parâmetro no montarIngressos, então dá para testar com qualquer regra.
    
-5. **Se fosse em outro paradigma.** Escolham uma das partes e expliquem como ficaria em outro
+4. **Se fosse em outro paradigma.** Escolham uma das partes e expliquem como ficaria em outro
    paradigma, e se ficaria melhor ou pior.
 
    **Resposta.** Escolhemos o `Evento`, hoje orientado a objetos, e imaginamos ele funcional. Em vez
@@ -112,7 +112,7 @@ curl -X POST localhost:3000/reservas -H 'Content-Type: application/json' \
    claramente melhor; para o `Evento`, a versão orientada a objetos ficou melhor neste projeto,
    justamente por causa da venda concorrente.
 
-6. **Concorrente × paralelo.** O Node roda o JavaScript numa linha só: os pedidos de vocês são
+5. **Concorrente × paralelo.** O Node roda o JavaScript numa linha só: os pedidos de vocês são
    concorrentes, não paralelos. O que mudaria se a venda rodasse em vários núcleos ao mesmo tempo?
 
    **Resposta.** Concorrente é vários pedidos progredindo no mesmo intervalo de tempo, intercalados
